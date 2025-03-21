@@ -39,7 +39,7 @@ fi
 
 module_name="github.com/$git_user_name/$project_slug"
 
-mkdir $project_slug && cd $project_slug
+mkdir test-proj && cd test-proj
 
 go mod init $module_name
 
