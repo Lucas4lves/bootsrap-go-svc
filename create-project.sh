@@ -18,9 +18,13 @@ else
     exit 1
 fi
 
-mkdir test_project && cd test_project
-
 git_user_name=$(git config user.name)
+
+if [[ $git_user_name == "" ]]; then
+    echo "WARNING: your github username is not defined"
+    echo "Using 'none' instead"
+    git_user_name="none"
+fi 
 
 read -p "Project name: " project_slug
 
@@ -34,6 +38,8 @@ else
 fi
 
 module_name="github.com/$git_user_name/$project_slug"
+
+mkdir test-proj && cd test-proj
 
 go mod init $module_name
 
